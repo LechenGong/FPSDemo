@@ -1,6 +1,7 @@
 # FPSDemo
 
 第一人称生存射击 Demo。在 15×15 的露天竞技场里活过三分钟的怪潮就能通关。
+运行Run文件夹下的FPSDemo_Release_x64.exe即可游玩（解压playable.zip亦可）
 
 ---
 
