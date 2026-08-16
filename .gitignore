@@ -27,7 +27,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -44,7 +43,4 @@ Code/Game/Game.vcxproj.filters
 Code/Game/Game.vcxproj.user
 
 # Ignore licensed art assets under the runtime data folder.
-Run/Data/Fonts/
-Run/Data/Images/
-Run/Data/Materials/
-Run/Data/Models/
+
