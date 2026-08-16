@@ -1,0 +1,142 @@
+<Definitions>
+    <!--
+      Open-air arena (no ceiling)
+      Ground walkable: 15x15, top at z=0
+      Outer walls: height 6 around rim
+      Gallery ring: width 2 inside walls, top z=3
+      Solid OBB ramp on south gallery, inner-east edge (width 4, run 8)
+      North spawn cave opposite ramp: opening W6 H2, depth 5, interior UV 0,4
+    -->
+  <MapDefinition name="TestMap">
+    <!-- Ground -->
+    <AABB name="Floor" size="15,15,0.5" center="0,0,-0.25" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="5,2"/>
+    </AABB>
+
+    <!-- Outer walls (height 6). North wall split for spawn opening x[-3,3], z[0,2] -->
+    <AABB name="WallNorthWest" size="5,0.5,6" center="-5.5,7.75,3" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="WallNorthEast" size="5,0.5,6" center="5.5,7.75,3" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="WallNorthHeader" size="6,0.5,4" center="0,7.75,4" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+
+    <AABB name="WallSouth" size="16,0.5,6" center="0,-7.75,3" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="WallEast" size="0.5,15,6" center="7.75,0,3" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="WallWest" size="0.5,15,6" center="-7.75,0,3" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+
+    <!-- Gallery ring, width 2. North split + bridge over the cave opening -->
+    <AABB name="GalleryNorthWest" size="4.5,2,3" center="-5.25,6.5,1.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Side uv="5,5"/>
+    </AABB>
+    <AABB name="GalleryNorthEast" size="4.5,2,3" center="5.25,6.5,1.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Side uv="5,5"/>
+    </AABB>
+    <AABB name="GalleryNorthBridge" size="6,2,1" center="0,6.5,2.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Bottom uv="5,5"/>
+      <Side uv="5,5"/>
+    </AABB>
+
+    <AABB name="GallerySouth" size="15,2,3" center="0,-6.5,1.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Side uv="5,5"/>
+    </AABB>
+    <AABB name="GalleryEast" size="2,11,3" center="6.5,0,1.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Side uv="5,5"/>
+    </AABB>
+    <AABB name="GalleryWest" size="2,11,3" center="-6.5,0,1.5" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="1,2"/>
+      <Side uv="5,5"/>
+    </AABB>
+
+    <!-- Ramp meets south gallery inner lip at y=-5.5 and east gallery inner x=5.5 -->
+    <OBB name="RampSouthEast" rampStart="3.5,2.5,0" rampEnd="3.5,-5.5,3" width="4" solid="true" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="7,1"/>
+      <Side uv="7,1"/>
+      <Bottom uv="7,1"/>
+    </OBB>
+
+    <!--
+      Shop stall: SW corner opposite the SE ramp.
+      Floor extents [-7.5,7.5]; center 4 units from west and south edges -> (-3.5,-3.5).
+      Body is a 2x2x2 AABB. Red disc (radius 2.5) is the interaction range overlay.
+    -->
+    <AABB name="ShopStall" size="2,2,2" center="-3.5,-3.5,1" material="Terrain" wrapMode="Tile">
+      <Top uv="5,5"/>
+      <Side uv="1,6"/>
+    </AABB>
+    <Interactable name="ArenaShop" type="Shop" center="-3.5,-3.5,0" radius="2.5"/>
+
+    <!--
+      Spawn cave on north (opposite ramp side), middle-bottom opening:
+      width 6 (x[-3,3]), height 2 (z[0,2]), depth 5 (y[7.5,12.5])
+      All interior faces UV 0,4
+    -->
+    <AABB name="CaveFloor" size="6,5,0.5" center="0,10,-0.25" navWalkable="true" material="Terrain" wrapMode="Tile">
+      <Top uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="CaveCeiling" size="6,5,0.5" center="0,10,2.25" material="Terrain" wrapMode="Tile">
+      <Bottom uv="0,4"/>
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="CaveBack" size="6,0.5,2" center="0,12.75,1" material="Terrain" wrapMode="Tile">
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="CaveLeft" size="0.5,5,2" center="-3.25,10,1" material="Terrain" wrapMode="Tile">
+      <Side uv="0,4"/>
+    </AABB>
+    <AABB name="CaveRight" size="0.5,5,2" center="3.25,10,1" material="Terrain" wrapMode="Tile">
+      <Side uv="0,4"/>
+    </AABB>
+
+    <!-- 1x1 start block on the north gallery bridge; destroyed after the first shot. -->
+    <AABB name="StartBlock" size="1,1,1" center="0,6.5,3.5" material="Terrain" wrapMode="Tile">
+      <Top uv="7,1"/>
+      <Side uv="7,1"/>
+    </AABB>
+    <Interactable name="StartBlock" type="StartTrigger" center="0,6.5,3.5" size="1,1,1"/>
+
+    <!--
+      Nav bake volume (AABB mins/maxs). Filter only — not walkable itself.
+      One volume for the whole TestMap so cave floor links to arena floor in one graph.
+    -->
+    <NavMeshVolume name="Arena" mins="-8,-8,-1" maxs="8,13,7"/>
+
+    <!-- Player at arena center, facing north toward the cave (+Y) -->
+    <SpawnInfo entity="Marine" position="0,0,0" orientation="90,0,0"/>
+
+    <!--
+      Survival horde: waves must outrun a 4-5s 3-kill, so they pile at the cave mouth.
+      Minute 1: 10 / 5s. Minute 2: 15 / 4s. Minute 3: 20 / 3.5s.
+      Soft-cap 32 delays (does not skip) so the arena stays a pack, not a physics melt.
+      Overtime: 40 in eight groups of 5, then stop.
+    -->
+    <SurvivalWaves entity="Demon" duration="180" maxLiveBeforeOvertime="32" orientation="-90,0,0">
+      <CaveSlots y="10.5" z="0" x="-2,-1,0,1,2"/>
+      <Phase start="2" period="5" count="10" waves="11"/>
+      <Phase start="60" period="4" count="15" waves="14"/>
+      <Phase start="120" period="3.5" count="20" waves="16"/>
+      <Overtime count="40" stagger="0.25" groups="5,5,5,5,5,5,5,5" yStep="-0.55"/>
+    </SurvivalWaves>
+  </MapDefinition>
+</Definitions>

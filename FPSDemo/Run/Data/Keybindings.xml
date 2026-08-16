@@ -1,0 +1,25 @@
+<Definition>
+    <Keybindings>
+        <Key name="forward" value="87" canBeModified="true"/>
+        <Key name="backward" value="83" canBeModified="true"/>
+        <Key name="leftward" value="65" canBeModified="true"/>
+        <Key name="rightward" value="68" canBeModified="true"/>
+        <Key name="jump" value="32" canBeModified="true"/>
+        <Key name="crouch" value="69" canBeModified="true"/>
+        <Key name="sprint" value="16" canBeModified="true"/>
+        <Key name="Dash" value="17" canBeModified="true"/>
+        <Key name="firstWeapon" value="49" canBeModified="true"/>
+        <Key name="secondWeapon" value="50" canBeModified="true"/>
+        <Key name="previousWeapon" value="4" canBeModified="true"/>
+        <Key name="nextWeapon" value="5" canBeModified="true"/>
+        <Key name="mainAttack" value="1" canBeModified="true"/>
+        <Key name="subAttack" value="2" canBeModified="true"/>
+        <Key name="reload" value="82" canBeModified="true"/>
+        <Key name="interactButton1" value="81" canBeModified="true"/>
+        <Key name="interactButton2" value="69" canBeModified="true"/>
+        <Key name="pauseGame" value="80" canBeModified="true"/>
+        <Key name="possessNextActor" value="78" canBeModified="false"/>
+        <Key name="confirm" value="32" canBeModified="false"/>
+        <Key name="cancel" value="27" canBeModified="false"/>
+    </Keybindings>
+</Definition>
